@@ -7,7 +7,7 @@
     tools:context=".AlunoActivity">
 
     <EditText
-        android:id="@+id/edt_nome"
+        android:id="@+id/edt_nome_aluno"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/edt_matricula"
+        android:id="@+id/edt_matricula_aluno"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"

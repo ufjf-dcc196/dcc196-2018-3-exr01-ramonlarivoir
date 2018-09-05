@@ -6,9 +6,9 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final int ALUNO_QTD = 0;
-    public static final int SERVIDOR_QTD = 0;
-    public static final int EXTERNO_QTD = 0;
+    public static final String ALUNO_QTD = "0";
+    public static final String SERVIDOR_QTD = "0";
+    public static final String EXTERNO_QTD = "0";
 
     private Button btnAluno;
     private Button btnServidor;
