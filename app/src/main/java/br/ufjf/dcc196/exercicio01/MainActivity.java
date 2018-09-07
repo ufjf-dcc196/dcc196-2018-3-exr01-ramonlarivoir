@@ -6,9 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.HashMap;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     public static final String PESSOA_NOME = "nome";
+    public static final String PESSOA_EXTRA = "extra";
     public static final int ALUNO_ID = 1;
     public static final int SERVIDOR_ID = 2;
     public static final int EXTERNO_ID = 3;
@@ -16,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
     private Button btnAluno;
     private Button btnServidor;
     private Button btnExterno;
+    private HashMap<String, String> alunos;
+    private HashMap<String, String> servidores;
+    private HashMap<String, String> externos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
