@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Esta matrícula já foi cadastrada!", Toast.LENGTH_SHORT).show();
             } else {
                 alunos.put(matriculaAluno, nomeAluno);
+                Toast.makeText(getApplicationContext(), "Aluno: " + nomeAluno + ". Matrícula: " + matriculaAluno + ". Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
             }
 
             txtQtdAluno.setText("Total de alunos cadastrados: " + alunos.size());
@@ -94,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Este Siape já foi cadastrado!", Toast.LENGTH_SHORT).show();
             } else {
                 servidores.put(siapeServidor, nomeServidor);
+                Toast.makeText(getApplicationContext(), "Servidor: " + nomeServidor + ". Siape: " + siapeServidor + ". Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
             }
 
             txtQtdServidor.setText("Total de servidores cadastrados: " + servidores.size());
@@ -105,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Este e-mail já foi cadastrado!", Toast.LENGTH_SHORT).show();
             } else {
                 externos.put(emailEsterno, nomeExterno);
+                Toast.makeText(getApplicationContext(), "Externo: " + nomeExterno + ". E-mail: " + emailEsterno + ". Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
             }
 
             txtQtdExterno.setText("Total de externos cadastrados: " + externos.size());
