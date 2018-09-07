@@ -8,18 +8,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String ALUNO_NOME = "aluno";
-    public static final String ALUNO_MATRICULA = "matricula";
-    public static final String SERVIDOR_NOME = "servidor";
-    public static final String SERVIDOR_SIAPE = "siape";
-    public static final String EXTERNO_NOME = "externo";
-    public static final String EXTERNO_EMAIL = "email";
+    public static final String PESSOA_NOME = "nome";
+    public static final String PESSOA_EXTRA = "extra";
     public static final int REQUEST_ALUNO = 1;
     public static final int REQUEST_SERVIDOR = 2;
     public static final int REQUEST_EXTERNO = 3;
@@ -80,20 +77,37 @@ public class MainActivity extends AppCompatActivity {
 
         if(requestCode == MainActivity.REQUEST_ALUNO && resultCode == Activity.RESULT_OK && data != null) {
             Bundle bundleResultadoAluno = data.getExtras();
-            String nomeAluno = bundleResultadoAluno.getString(MainActivity.ALUNO_NOME);
-            String matriculaAluno = bundleResultadoAluno.getString(MainActivity.ALUNO_MATRICULA);
-            alunos.put(matriculaAluno, nomeAluno);
+            String nomeAluno = bundleResultadoAluno.getString(MainActivity.PESSOA_NOME);
+            String matriculaAluno = bundleResultadoAluno.getString(MainActivity.PESSOA_EXTRA);
+            if(alunos.containsKey(matriculaAluno)) {
+                Toast.makeText(getApplicationContext(), "Esta matrícula já foi cadastrada!", Toast.LENGTH_SHORT).show();
+            } else {
+                alunos.put(matriculaAluno, nomeAluno);
+            }
 
             txtQtdAluno.setText("Total de alunos cadastrados: " + alunos.size());
-        }
-
-        if (requestCode == MainActivity.REQUEST_SERVIDOR && requestCode == Activity.RESULT_OK && data != null) {
+        } else if (requestCode == MainActivity.REQUEST_SERVIDOR && resultCode == Activity.RESULT_OK && data != null) {
             Bundle bundleResultadoServidor = data.getExtras();
-            String nomeServidor = bundleResultadoServidor.getString(MainActivity.SERVIDOR_NOME);
-            String siapeServidor = bundleResultadoServidor.getString(MainActivity.SERVIDOR_SIAPE);
-            servidores.put(siapeServidor, nomeServidor);
+            String nomeServidor = bundleResultadoServidor.getString(MainActivity.PESSOA_NOME);
+            String siapeServidor = bundleResultadoServidor.getString(MainActivity.PESSOA_EXTRA);
+            if(servidores.containsKey(siapeServidor)) {
+                Toast.makeText(getApplicationContext(), "Este Siape já foi cadastrado!", Toast.LENGTH_SHORT).show();
+            } else {
+                servidores.put(siapeServidor, nomeServidor);
+            }
 
             txtQtdServidor.setText("Total de servidores cadastrados: " + servidores.size());
+        } else if (requestCode == MainActivity.REQUEST_EXTERNO && resultCode == Activity.RESULT_OK && data != null) {
+            Bundle bundleResultadoExterno = data.getExtras();
+            String nomeExterno = bundleResultadoExterno.getString(MainActivity.PESSOA_NOME);
+            String emailEsterno = bundleResultadoExterno.getString(MainActivity.PESSOA_EXTRA);
+            if(externos.containsKey(emailEsterno)) {
+                Toast.makeText(getApplicationContext(), "Este e-mail já foi cadastrado!", Toast.LENGTH_SHORT).show();
+            } else {
+                externos.put(emailEsterno, nomeExterno);
+            }
+
+            txtQtdExterno.setText("Total de externos cadastrados: " + externos.size());
         }
     }
 }

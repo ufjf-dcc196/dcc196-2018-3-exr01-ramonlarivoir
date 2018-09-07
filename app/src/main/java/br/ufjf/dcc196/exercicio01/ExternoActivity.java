@@ -28,13 +28,17 @@ public class ExternoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent resultadoExterno = new Intent();
-                resultadoExterno.putExtra(MainActivity.EXTERNO_NOME, edtNomeExterno.getText().toString());
-                resultadoExterno.putExtra(MainActivity.EXTERNO_EMAIL, edtEmailExterno.getText().toString());
+                resultadoExterno.putExtra(MainActivity.PESSOA_NOME, edtNomeExterno.getText().toString());
+                resultadoExterno.putExtra(MainActivity.PESSOA_EXTRA, edtEmailExterno.getText().toString());
                 setResult(Activity.RESULT_OK, resultadoExterno);
                 finish();
             }
         });
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
         Toast.makeText(getApplicationContext(), "Olá Externo!", Toast.LENGTH_SHORT).show();
     }
 }
